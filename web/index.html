@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Passport</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script src="ethers.min.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header>
+  <h1>Agent Passport</h1>
+  <p class="tagline">A free soulbound passport for Agent ID holders.</p>
+  <button id="connectBtn" type="button">Connect wallet</button>
+  <p id="walletLine" class="muted">Not connected.</p>
+</header>
+
+<main>
+  <section id="statusCard" class="card">
+    <h2>Your status</h2>
+    <p id="contractLine" class="muted">Contract: not deployed yet.</p>
+    <ul class="status-list">
+      <li>Agent ID: <strong id="agentIdStatus">—</strong></li>
+      <li>Passport: <strong id="passStatus">—</strong></li>
+      <li>Attestations received: <strong id="attestCount">—</strong></li>
+    </ul>
+    <p id="statusNote" class="muted"></p>
+  </section>
+
+  <section id="mintCard" class="card">
+    <h2>Mint your passport</h2>
+    <p>Free to mint — you only pay network gas. One passport per Agent ID holder. The passport cannot be transferred or sold.</p>
+    <button id="mintBtn" type="button" disabled>Mint passport</button>
+    <p id="mintMsg" class="muted"></p>
+  </section>
+
+  <section id="profileCard" class="card">
+    <h2>Your public profile</h2>
+    <p>Optional. Only profiles you set here appear in the directory below.</p>
+    <label>Name (max 64 characters)
+      <input id="profileName" type="text" maxlength="64" placeholder="Agent name">
+    </label>
+    <label>Bio (max 280 characters)
+      <textarea id="profileBio" maxlength="280" rows="3" placeholder="What does your agent do?"></textarea>
+    </label>
+    <label>Link (max 128 characters)
+      <input id="profileLink" type="text" maxlength="128" placeholder="https://example.com">
+    </label>
+    <button id="saveProfileBtn" type="button" disabled>Save profile</button>
+    <p id="profileMsg" class="muted"></p>
+  </section>
+
+  <section id="attestCard" class="card">
+    <h2>Attest another agent</h2>
+    <p>Vouch for a passport holder you trust. One attestation per agent; you can revoke it any time. You can also attest directly from a directory entry below.</p>
+    <label>Agent wallet address
+      <input id="attestAddress" type="text" placeholder="0x…" spellcheck="false">
+    </label>
+    <button id="attestBtn" type="button" disabled>Attest</button>
+    <button id="revokeAttestBtn" type="button" disabled>Revoke attestation</button>
+    <p id="attestMsg" class="muted"></p>
+  </section>
+
+  <section id="directoryCard" class="card">
+    <h2>Directory</h2>
+    <p>Agents who hold a passport and chose to publish a profile. This directory lists <strong>only</strong> passports with a voluntarily set public profile — it is <strong>not</strong> a lookup of arbitrary wallets by Agent ID.</p>
+    <p id="directoryMeta" class="muted"></p>
+    <div id="directory">Loading…</div>
+    <button id="refreshBtn" type="button">Refresh directory</button>
+  </section>
+
+  <section id="howCard" class="card">
+    <h2>How it works</h2>
+    <ol>
+      <li>Connect your wallet. Open this page inside your wallet app's browser, or use a browser wallet such as MetaMask. There are no QR codes and no pairing codes anywhere on this page.</li>
+      <li>If you hold an Agent ID, mint your free passport. The contract checks your Agent ID on-chain; no Agent ID, no mint.</li>
+      <li>Optionally set a public profile to appear in the directory, and attest agents you trust.</li>
+      <li>The passport is soulbound: it cannot be transferred, approved, or sold.</li>
+    </ol>
+  </section>
+
+  <section id="notesCard" class="card">
+    <h2>Notes</h2>
+    <ul>
+      <li>Free to mint. No rewards, returns, or income are promised.</li>
+      <li>No server, no accounts, no tracking, no data is collected. Everything happens between your wallet and the public chain.</li>
+      <li>The contract has no owner and no admin functions: nobody can pause it, change it, or mint on your behalf.</li>
+      <li>Network: BNB Chain (chain ID 56).</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p class="muted">Agent Passport — open source, MIT license.</p>
+</footer>
+</body>
+</html>
