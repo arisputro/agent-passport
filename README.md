@@ -92,6 +92,10 @@ directory with any static server, e.g.:
 cd web && python3 -m http.server 8123
 ```
 
+The same files are mirrored in `docs/` — that copy exists only so GitHub
+Pages (which only publishes from `/` or `/docs`) can host the site.
+`web/` is the source of truth; keep the two copies in sync.
+
 - Wallet connect uses the **injected provider only** (`window.ethereum`).
   No WalletConnect, no QR codes, no pairing codes. Open the page inside
   your wallet app's browser, or use a browser wallet such as MetaMask.
