@@ -20,4 +20,4 @@
   (`0x4e59b44847b379578588920cA78FbF26c0B4956C`, CREATE2, salt 0) because
   the Binance Agentic Wallet cannot send a bare contract-creation tx.
 - Deployed bytecode: 5,726 bytes. Creation bytecode: 5,940 bytes.
-- Status: pending (attempt via BscScan web form; no API key available).
+- Status: **verified** 20 Nov 2026 ~07:03 WIB — submitted by Aris on his phone via the BscScan web form; BscScan replied "Successfully generated matching Bytecode and ABI for Contract Address 0x0aee32055557837b73b5e14a2b8dd25f1bde789e". Contract page: https://bscscan.com/address/0x0aee32055557837b73b5e14a2b8dd25f1bde789e#code
